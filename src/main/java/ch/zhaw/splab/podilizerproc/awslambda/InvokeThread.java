@@ -85,7 +85,6 @@ public class InvokeThread extends Thread {
             invokeRequest.setPayload(json);
             outObj = objectMapper.readValue(byteBufferToString(lambdaClient.invoke(invokeRequest).getPayload(),
                     Charset.forName("UTF-8")), outClazz);
-            outObj.getClass().getD
             methodResult = outObj.getClass().getDeclaredMethod("getResult").invoke(outObj);
         } catch (Exception e) {
             e.printStackTrace();
